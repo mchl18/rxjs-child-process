@@ -1,0 +1,21 @@
+{
+  "name": "rxjs-child-process",
+  "version": "1.0.0",
+  "description": "NodeJS child_process fork and spawn as rxjs observables.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/test.spec.js"
+  },
+  "author": "Michael Gerullis",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "rxjs": "^6.6.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "sinon": "^9.0.2",
+    "sinon-chai": "^3.5.0"
+  }
+}
