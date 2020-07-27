@@ -41,11 +41,7 @@ createSpawnMock = ({
   return spawnEvent;
 }
 
-createForkMock = () => {
-  return new EventEmitter();
-}
 
 module.exports = {
   createSpawnMock,
-  createForkMock,
 }

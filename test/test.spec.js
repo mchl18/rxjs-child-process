@@ -7,7 +7,7 @@ const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
 
 const { spawnObservable, forkObservable } = require('../index');
-const { createSpawnMock, createForkMock } = require('./mock');
+const { createSpawnMock } = require('./mock');
 const { Logger } = require('../logger');
 const { EventEmitter } = require('events');
 
