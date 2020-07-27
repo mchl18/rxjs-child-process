@@ -14,11 +14,10 @@ const { EventEmitter } = require('events');
 describe('spawnObservable', () => {
   describe('stdout', () => {
     it('should print the process stdout', done => {
-      const cmd = 'success';
       const mock = createSpawnMock({ stdout: 'done' });
       sinon.stub(child_process, 'spawn').returns(mock)
 
-      const subscription = spawnObservable(cmd).subscribe(res => {
+      const subscription = spawnObservable('cmd').subscribe(res => {
         expect(res).to.equal('done');
         done();
         subscription.unsubscribe();
@@ -30,12 +29,11 @@ describe('spawnObservable', () => {
 
   describe('stderr', () => {
     it('should print the process stderr', done => {
-      const cmd = 'err';
       const mock = createSpawnMock({ stderr: 'err' });
       const spy = sinon.spy(Logger, 'error');
       sinon.stub(child_process, 'spawn').returns(mock);
 
-      const subscription = spawnObservable(cmd).subscribe(
+      const subscription = spawnObservable('cmd').subscribe(
         () => { },
         () => {
           expect(spy.called).to.equal(true);
