@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "NodeJS child_process fork and spawn as rxjs observables.",
   "homepage": "https://github.com/mchl18/rxjs-child-process#rxjs-child-process",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "mocha test/test.spec.js",
     "build": "parcel build index.js"
