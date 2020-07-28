@@ -1,5 +1,5 @@
 # rxjs-child-process
-NodeJS child_process fork and spawn as rxjs observables.
+NodeJS child_process fork and spawn as rxjs6+ observables.
 
 ## Installation
 
