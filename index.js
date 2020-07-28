@@ -2,6 +2,15 @@ const { Observable } = require('rxjs');
 const child_process = require('child_process');
 const { Logger } = require('./logger');
 
+/**
+ * Spawns a child process and returns an observable.
+ * The observable completes with an error when the 
+ * child process errors or logs to stderr.
+ * It emits data logged to stdout and completes when closed.
+ * @param {string} command 
+ * @param {string[]} args 
+ * @param {SpawnOptionsWithoutStdio} options 
+ */
 function spawnObservable(command, args = [], options = {}) {
   const cmdStr = `${command} ${args.join(' ')}`;
   return new Observable((observer) => {
@@ -38,6 +47,14 @@ function spawnObservable(command, args = [], options = {}) {
   });
 }
 
+/**
+ * Forks a child process and returns an observable.
+ * The observable completes with an error when the child process emits an error.
+ * It emits data emitted by message then completes.
+ * @param {string} command 
+ * @param {string[]} args 
+ * @param {ForkOptions} options 
+ */
 function forkObservable(modulePath, args = [], options = {}) {
   const cmdStr = `${modulePath} ${args.join(' ')}`;
   return new Observable((observer) => {
