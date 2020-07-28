@@ -20,7 +20,7 @@ import { spawnObservable } from 'rxjs-child-process';
 
 
 
-spawnObservable('rm -rf /var').subscribe(
+spawnObservable('rm', ['-rf', '/var']).subscribe(
   msg => console.log(msg),
   err => console.err(err),
 );
@@ -35,7 +35,7 @@ import { forkObservable } from 'rxjs-child-process';
 
 
 
-forkObservable('./script.js').subscribe(
+forkObservable('./script.js', ['--path', './some/path']).subscribe(
   msg => console.log(msg),
   err => console.err(err),
 );
