@@ -1,9 +1,22 @@
 {
   "name": "rxjs-child-process",
-  "version": "1.0.2",
+  "version": "1.0.21",
   "description": "NodeJS child_process fork and spawn as rxjs observables.",
   "homepage": "https://github.com/mchl18/rxjs-child-process#rxjs-child-process",
   "main": "dist/index.js",
+  "keywords": [
+    "async",
+    "observable",
+    "rxjs",
+    "nodeJS"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mchl18/rxjs-child-process.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mchl18/rxjs-child-process/issues"
+  },
   "scripts": {
     "test": "mocha test/test.spec.js",
     "build": "parcel build index.js",
