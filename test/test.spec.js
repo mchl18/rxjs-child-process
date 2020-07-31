@@ -8,7 +8,7 @@ chai.use(sinonChai);
 
 const { spawnObservable, forkObservable } = require('../index');
 const { createSpawnMock } = require('./mock');
-const { Logger } = require('../logger');
+const { Logger } = require('../src/logger');
 const { EventEmitter } = require('events');
 
 describe('spawnObservable', () => {
