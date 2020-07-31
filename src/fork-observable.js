@@ -10,7 +10,7 @@ const { Logger } = require('./logger');
  * @param {string[]} args 
  * @param {ForkOptions} options 
  */
-export function forkObservable(modulePath, args = [], options = {}) {
+function forkObservable(modulePath, args = [], options = {}) {
   const cmdStr = `${modulePath} ${args.join(' ')}`;
   return new Observable((observer) => {
     const forkee = child_process.fork(modulePath, args, options);
@@ -28,3 +28,5 @@ export function forkObservable(modulePath, args = [], options = {}) {
     })
   });
 }
+
+module.exports = { forkObservable }
