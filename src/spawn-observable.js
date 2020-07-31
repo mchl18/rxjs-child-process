@@ -11,7 +11,7 @@ const { Logger } = require('./logger');
  * @param {string[]} args 
  * @param {SpawnOptionsWithoutStdio} options 
  */
-export function spawnObservable(command, args = [], options = {}) {
+function spawnObservable(command, args = [], options = {}) {
   const cmdStr = `${command} ${args.join(' ')}`;
   return new Observable((observer) => {
     const spawnee = child_process.spawn(command, args, options);
@@ -46,3 +46,5 @@ export function spawnObservable(command, args = [], options = {}) {
     });
   });
 }
+
+module.exports = { spawnObservable }
