@@ -3,7 +3,7 @@
   "version": "1.0.31",
   "description": "NodeJS child_process fork and spawn as rxjs observables.",
   "homepage": "https://github.com/mchl18/rxjs-child-process#rxjs-child-process",
-  "main": "dist/index.js",
+  "main": "index.js",
   "keywords": [
     "async",
     "observable",
@@ -19,7 +19,6 @@
   },
   "scripts": {
     "test": "mocha test/test.spec.js",
-    "build": "parcel build index.js",
     "docs": "jsdoc"
   },
   "author": "Michael Gerullis",
