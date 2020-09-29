@@ -45,7 +45,7 @@ function spawnObservable(command, args = [], options = {}) {
       observer.error(
         new Error(`Child Process Error: 
       
-      ${error}`)
+${error}`)
       );
     });
   });

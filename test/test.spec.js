@@ -13,28 +13,27 @@ const { EventEmitter } = require('events');
 
 describe('spawnObservable', () => {
   describe('stdout', () => {
-    it('should print the process stdout', done => {
+    it('should print the process stdout', (done) => {
       const mock = createSpawnMock({ stdout: 'done' });
-      sinon.stub(child_process, 'spawn').returns(mock)
+      sinon.stub(child_process, 'spawn').returns(mock);
 
-      const subscription = spawnObservable('cmd').subscribe(res => {
+      const subscription = spawnObservable('cmd').subscribe((res) => {
         expect(res).to.equal('done');
         done();
         subscription.unsubscribe();
         child_process.spawn.restore();
       });
     });
-  })
-
+  });
 
   describe('stderr', () => {
-    it('should print the process stderr', done => {
+    it('should print the process stderr', (done) => {
       const mock = createSpawnMock({ stderr: 'err' });
       const spy = sinon.spy(Logger, 'error');
       sinon.stub(child_process, 'spawn').returns(mock);
 
       const subscription = spawnObservable('cmd').subscribe(
-        () => { },
+        () => {},
         () => {
           expect(spy.called).to.equal(true);
           subscription.unsubscribe();
@@ -44,12 +43,12 @@ describe('spawnObservable', () => {
         }
       );
     });
-  })
+  });
 });
 
 describe('forkObservable', () => {
   describe('on success', () => {
-    it('should finish on message', done => {
+    it('should finish on message', (done) => {
       const mock = new EventEmitter();
       sinon.stub(child_process, 'fork').returns(mock);
       const spy = sinon.spy(Logger, 'log');
@@ -58,29 +57,30 @@ describe('forkObservable', () => {
         expect(spy.called).to.equal(true);
         subscription.unsubscribe();
         child_process.fork.restore();
-        done()
+        done();
       });
 
       mock.emit('message');
     });
-  })
+  });
 
   describe('on error', () => {
-    it('should finish on message', done => {
+    it('should finish on message', (done) => {
       const mock = new EventEmitter();
       sinon.stub(child_process, 'fork').returns(mock);
       const spy = sinon.spy(Logger, 'error');
 
       const subscription = forkObservable('./foo.js').subscribe(
-        () => { },
+        () => {},
         () => {
           expect(spy.called).to.equal(true);
           subscription.unsubscribe();
           child_process.fork.restore();
-          done()
-        });
+          done();
+        }
+      );
 
       mock.emit('error');
     });
-  })
-})
+  });
+});

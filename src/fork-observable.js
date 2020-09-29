@@ -6,9 +6,9 @@ const { Logger } = require('./logger');
  * Forks a child process and returns an observable.
  * The observable completes with an error when the child process emits an error.
  * It emits data emitted by message then completes.
- * @param {string} command 
- * @param {string[]} args 
- * @param {ForkOptions} options 
+ * @param {string} command
+ * @param {string[]} args
+ * @param {ForkOptions} options
  */
 function forkObservable(modulePath, args = [], options = {}) {
   const cmdStr = `${modulePath} ${args.join(' ')}`;
@@ -19,14 +19,14 @@ function forkObservable(modulePath, args = [], options = {}) {
     forkee.on('error', (error) => {
       Logger.error(`${error}`);
       observer.error(`${error}`);
-    })
+    });
 
-    forkee.on('message', data => {
+    forkee.on('message', (data) => {
       Logger.log(`${data}`);
       observer.next(`${data}`);
       observer.complete();
-    })
+    });
   });
 }
 
-module.exports = { forkObservable }
+module.exports = { forkObservable };
