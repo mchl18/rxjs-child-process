@@ -1,6 +1,6 @@
 {
   "name": "rxjs-child-process",
-  "version": "1.0.32",
+  "version": "1.0.4",
   "description": "NodeJS child_process fork and spawn as rxjs observables.",
   "homepage": "https://github.com/mchl18/rxjs-child-process#rxjs-child-process",
   "main": "index.js",
